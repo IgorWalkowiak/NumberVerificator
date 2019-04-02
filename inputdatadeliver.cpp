@@ -26,7 +26,7 @@ void InputDataDeliver::parseInputData()
         for(auto color : *input.colors)
         {
             x++;
-          printf("%03u ",color);
+          printf("%03f ",color);
           if(x%28 == 0) std::cout<<std::endl;
         }
             std::cout<<std::endl;

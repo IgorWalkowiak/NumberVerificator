@@ -6,9 +6,9 @@
 using namespace std;
 
 struct DataStruct{
-    shared_ptr<vector<uint8_t>> colors;
+    shared_ptr<vector<float>> colors;
     uint8_t value;
-    DataStruct(shared_ptr<vector<uint8_t>> colors,uint8_t value)
+    DataStruct(shared_ptr<vector<float>> colors,uint8_t value)
     {
         this->colors=colors;
         this->value=value;

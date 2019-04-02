@@ -11,6 +11,7 @@ int main()
     inputDataDeliver.parseInputData();
 
 
-    cout << "Hello World!" << endl;
+
+
     return 0;
 }

@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 project(NumberVeryficator)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
-file(GLOB SOURCES "*.cpp")
-file(GLOB HEADERS "*.h")
+file(GLOB SOURCES "*.cpp" "Layers/*.cpp")
+file(GLOB HEADERS "*.h" "Layers/*.h" "Layers/*.hpp")
 
 set(SFML_INCLUDE_DIR "/home/rewieer/Libraries/SFML-2.5.1/include")
 set(SFML_LIBRARY_DIR "/home/rewieer/Libraries/SFML-2.5.1/lib")

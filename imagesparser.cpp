@@ -15,9 +15,9 @@ ImagesParser::ImagesParser()
 }
 
 
-std::shared_ptr<std::vector<uint8_t>> ImagesParser::getDataFromImage(std::string imagePath)
+std::shared_ptr<std::vector<float>> ImagesParser::getDataFromImage(std::string imagePath)
 {
-    std::vector<uint8_t> data;
+    std::vector<float> data;
     sf::Image image;
     if (!image.loadFromFile(  systemPath+ imagePath)) std::cout<<"ERROR with image Loading";
 
@@ -26,9 +26,9 @@ std::shared_ptr<std::vector<uint8_t>> ImagesParser::getDataFromImage(std::string
 
     for(int i =0;sizeVec.x*sizeVec.y>i;i++)
     {
-        data.push_back(pixelPtr[i*4]);//multiply 4 because I want just black/white color
+        data.push_back(float(pixelPtr[i*4])/255.0);//multiply 4 because I want just black/white color
     }
 
-    return std::make_shared<std::vector<uint8_t>>(data);
+    return std::make_shared<std::vector<float>>(data);
 
 }
