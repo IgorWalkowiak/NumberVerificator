@@ -8,7 +8,11 @@ class HiddenLayer :public LayerI
     std::vector<std::vector<float>> weights;
 
 public:
-    HiddenLayer(int outputSize, std::unique_ptr<LayerI> previousLayer, std::function<float(float)> activFunction);
+    HiddenLayer(int outputSize, LayerI* previousLayer, std::function<float(float)> activFunction);
+    HiddenLayer(int outputSize, std::function<float(float)> activFunction);
+    void setPreviousLayer(LayerI* previousLayer);
+    void processInputs();
+
 };
 
 #endif // HIDDENLAYER_H

@@ -8,7 +8,8 @@ class OutputLayer :public LayerI
 {
 
 public:
-    OutputLayer(int outputSize, std::unique_ptr<LayerI> previousLayer, std::function<float(float)> activFunction);
+    OutputLayer(int outputSize, LayerI* previousLayer, std::function<float(float)> activFunction);
+    void processInputs();
 };
 
 #endif // OUTPUTLAYER_H

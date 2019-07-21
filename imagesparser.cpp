@@ -6,12 +6,11 @@
 #include <memory>
 
 //TODO: change this:
-const std::string systemPath= "/home/igor/Projects/build-NumberVeryficator-Desktop-Release/Images/train/";
+const std::string systemPath= "/home/igor/Projects/Images/train/";
 
 
 ImagesParser::ImagesParser()
 {
-
 }
 
 
@@ -19,7 +18,7 @@ std::shared_ptr<std::vector<float>> ImagesParser::getDataFromImage(std::string i
 {
     std::vector<float> data;
     sf::Image image;
-    if (!image.loadFromFile(  systemPath+ imagePath)) std::cout<<"ERROR with image Loading";
+    if (!image.loadFromFile(systemPath+imagePath)) std::cout<<"ERROR with image Loading";
 
     sf::Vector2u sizeVec = image.getSize();
     const uint8_t* pixelPtr = image.getPixelsPtr();

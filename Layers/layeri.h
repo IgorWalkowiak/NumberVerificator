@@ -7,20 +7,22 @@
 
 class LayerI
 {
-    std::shared_ptr<std::vector<float>> mInputData;
-    std::shared_ptr<std::vector<float>> mOutputData;
-
-    std::unique_ptr<LayerI> mPreviousLayer;
-
-
+protected:
+    std::vector<float>* mInputData;
+    std::unique_ptr<std::vector<float>> mOutputData;
+    LayerI *mPreviousLayer;
     std::function<float(float)> mActivFunction;
 
 
 public:
-    LayerI(int outputSize, std::unique_ptr<LayerI> previousLayer, std::function<float(float)> activFunction);
-    LayerI(int outputSize); //firstLayer
+    LayerI(LayerI* previousLayer, std::function<float(float)> activFunction);
+    LayerI(std::function<float(float)> activFunction);
 
-    std::shared_ptr<std::vector<float>> getOutputs();
+
+    std::vector<float>* getOutputs();
+    int getOutputSize();
+    int getPreviousLayerOutputSize();
+    virtual void processInputs()=0;
 
 };
 

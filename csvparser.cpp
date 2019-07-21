@@ -25,9 +25,9 @@
         parsedData.push_back(std::make_pair(first,second));
 
     }
-    for(auto iter = result.begin();iter!=result.end();iter=iter+2)
+    for(auto iter = result.begin(); iter!=result.end(); iter=iter+2)
     {
-        std::cout<<*iter<<"    "<<*(iter+1)<<"\n";
+        std::cout<< *iter <<"    "<< *(iter+1) <<"\n";
     }
 
     }

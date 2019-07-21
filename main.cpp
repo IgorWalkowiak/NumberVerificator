@@ -2,14 +2,13 @@
 #include "csvparser.h"
 #include <SFML/Graphics.hpp>
 #include <cstdio>
-#include "inputdatadeliver.h"
+#include "neuronnetwork.h"
 using namespace std;
 
 int main()
 {
-    InputDataDeliver inputDataDeliver("train.csv");
-    inputDataDeliver.parseInputData();
-
+    NeuronNetwork neuronNetwork("train.csv", 4, 10, 784);
+    //neuronNetwork.loadAndParseInputsFromFile();
 
 
 

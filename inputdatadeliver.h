@@ -5,13 +5,15 @@
 #include "imagesparser.h"
 using namespace std;
 
-struct DataStruct{
+struct InputDataStruct{
+
     shared_ptr<vector<float>> colors;
-    uint8_t value;
-    DataStruct(shared_ptr<vector<float>> colors,uint8_t value)
+    uint8_t valueOnPicture;
+
+    InputDataStruct(shared_ptr<vector<float>> colors,uint8_t value)
     {
         this->colors=colors;
-        this->value=value;
+        this->valueOnPicture=value;
     }
 };
 
@@ -19,7 +21,7 @@ struct DataStruct{
 class InputDataDeliver
 {
     vector<pair<uint8_t,string>> parsedCsvData;
-    vector<DataStruct> inputData;
+    vector<InputDataStruct> inputData;
 
     CsvParser csvParser;
     ImagesParser imagesParser;

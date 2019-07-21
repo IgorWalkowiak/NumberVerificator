@@ -3,26 +3,31 @@
 
 
 
-LayerI::LayerI(int outputSize, std::unique_ptr<LayerI> previousLayer, std::function<float (float)> activFunction)
-    : mPreviousLayer(std::move(previousLayer)), mActivFunction(activFunction)
+LayerI::LayerI(LayerI* previousLayer, std::function<float (float)> activFunction)
+    : mPreviousLayer(previousLayer), mActivFunction(activFunction), mInputData(nullptr)
 {
-    mOutputData=std::make_shared<std::vector<float>>(outputSize);
-    mInputData=mPreviousLayer->getOutputs();
+
+}
+
+LayerI::LayerI(std::function<float (float)> activFunction)
+{
+
 }
 
 
-
-LayerI::LayerI(int sizeOfInput) //first layer
+std::vector<float>* LayerI::getOutputs()
 {
-    mOutputData=std::make_shared<std::vector<float>>(sizeOfInput);
-    mInputData =std::make_shared<std::vector<float>>(sizeOfInput);
-    std::unique_ptr<LayerI> mPreviousLayer = nullptr;
-
-
-    mActivFunction = [](float input) { return input;};
+    return mOutputData.get();
 }
 
-std::shared_ptr<std::vector<float> > LayerI::getOutputs()
+int LayerI::getOutputSize()
 {
-    return mOutputData;
+    return mOutputData.get()->size();
 }
+
+int LayerI::getPreviousLayerOutputSize()
+{
+    return mPreviousLayer->getOutputSize();
+}
+
+

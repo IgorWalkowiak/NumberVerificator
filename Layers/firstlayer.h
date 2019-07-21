@@ -10,6 +10,8 @@ class FirstLayer :public LayerI
 
 public:
     FirstLayer(int sizeOfInput);
+    void processInputs();
+    void loadInputs(std::vector<float>*);
 };
 
 
