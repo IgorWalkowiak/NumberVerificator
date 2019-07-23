@@ -5,30 +5,25 @@
 #include "imagesparser.h"
 using namespace std;
 
-struct InputDataStruct{
-
-    shared_ptr<vector<float>> colors;
+struct InputDataStruct
+{
+    vector<float> colors;
     uint8_t valueOnPicture;
-
-    InputDataStruct(shared_ptr<vector<float>> colors,uint8_t value)
-    {
-        this->colors=colors;
-        this->valueOnPicture=value;
-    }
 };
 
 
 class InputDataDeliver
 {
-    vector<pair<uint8_t,string>> parsedCsvData;
-    vector<InputDataStruct> inputData;
-
     CsvParser csvParser;
     ImagesParser imagesParser;
 
 public:
     InputDataDeliver(string csvFileDir);
-    void parseInputData();
+    void parseCsvData();
+    void changeInputData(int index);
+
+    InputDataStruct inputData;
+    vector<pair<uint8_t,string>> parsedCsvData;
 };
 
 #endif // INPUTDATADELIVER_H

@@ -17,7 +17,8 @@ class NeuronNetwork
 
 public:
     NeuronNetwork(std::string csvFilePath, int numberOfHiddenLayers, int numberOfOutputs, int nodesInHiddenLayers);
-    void loadAndParseInputsFromFile();
+    void loadAndParseCsvDataFromFile();
+    void startLearn();
 
 };
 

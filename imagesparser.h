@@ -10,7 +10,7 @@ class ImagesParser
 
 public:
     ImagesParser();
-    std::shared_ptr<std::vector<float>>  getDataFromImage(std::string);
+    void getDataFromImage(std::string imagePath, std::vector<float>& data);
 };
 
 #endif // IMAGESPARSER_H

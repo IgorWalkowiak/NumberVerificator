@@ -4,12 +4,13 @@
 
 
 LayerI::LayerI(LayerI* previousLayer, std::function<float (float)> activFunction)
-    : mPreviousLayer(previousLayer), mActivFunction(activFunction), mInputData(nullptr)
+    : mPreviousLayer(previousLayer), mActivFunction(activFunction), mInputData(previousLayer->getOutputs())
 {
 
 }
 
 LayerI::LayerI(std::function<float (float)> activFunction)
+    :mActivFunction(activFunction)
 {
 
 }
@@ -17,12 +18,12 @@ LayerI::LayerI(std::function<float (float)> activFunction)
 
 std::vector<float>* LayerI::getOutputs()
 {
-    return mOutputData.get();
+    return &mOutputData;
 }
 
 int LayerI::getOutputSize()
 {
-    return mOutputData.get()->size();
+    return mOutputData.size();
 }
 
 int LayerI::getPreviousLayerOutputSize()

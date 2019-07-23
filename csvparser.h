@@ -14,7 +14,6 @@ class CsvParser
 {
     std::string     source;
     std::ifstream   file;
-    std::vector<std::string> result;
 public:
     CsvParser(std::string);
     void parseFile(std::vector<std::pair<uint8_t,std::string>>&);

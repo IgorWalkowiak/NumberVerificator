@@ -10,8 +10,20 @@ NeuronNetwork::NeuronNetwork(std::string csvFilePath, int numberOfHiddenLayers, 
 
 }
 
-void NeuronNetwork::loadAndParseInputsFromFile()
+void NeuronNetwork::loadAndParseCsvDataFromFile()
 {
-    inputDataDeliver.parseInputData();
-
+    inputDataDeliver.parseCsvData();
 }
+
+void NeuronNetwork::startLearn()
+{
+    for(int numberOfSample = 0; numberOfSample<=inputDataDeliver.parsedCsvData.size();numberOfSample++)
+    {
+        inputDataDeliver.changeInputData(numberOfSample);
+        firstLayer.loadInputs(&inputDataDeliver.inputData.colors);
+        hiddenNetwork.processHiddenLayers();
+        outputLayer.processInputs();
+        if(numberOfSample==5) break;
+    }
+}
+

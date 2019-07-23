@@ -8,13 +8,14 @@
 class LayerI
 {
 protected:
-    std::vector<float>* mInputData;
-    std::unique_ptr<std::vector<float>> mOutputData;
+
+    std::vector<float> mOutputData;
     LayerI *mPreviousLayer;
     std::function<float(float)> mActivFunction;
 
 
 public:
+    std::vector<float>* mInputData;
     LayerI(LayerI* previousLayer, std::function<float(float)> activFunction);
     LayerI(std::function<float(float)> activFunction);
 

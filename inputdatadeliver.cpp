@@ -7,31 +7,22 @@
 InputDataDeliver::InputDataDeliver(string csvFileDir)
 :csvParser(csvFileDir)
 {
-
+    this->inputData.colors.resize(784); //looking for smart way to keep it flexible
+    std::cout<<"INPUT DATA:"<<this->inputData.colors.size();
 }
 
-void InputDataDeliver::parseInputData()
+void InputDataDeliver::parseCsvData()
 {
-    printf("Data Parser constructor :: DEBUG");
+    std::cout<<"Parsing Csv Data..."<<std::endl;
     csvParser.parseFile(parsedCsvData);
-    for(auto csvData : parsedCsvData)
-    {
-        printf("Number: %u, Path: %s \n",csvData.first,csvData.second.c_str());
-        inputData.push_back(InputDataStruct(imagesParser.getDataFromImage(csvData.second),csvData.first));
-    }
+    std::cout<<"Csv Data Parsed"<<std::endl;
+}
 
-    for(auto input:inputData)
-    {
-        int x=0;
-        printf("NUMBER: %u \n",input.valueOnPicture);
-        for(auto color : *input.colors)
-        {
-            x++;
-          printf("%0.2f ",color);
-          if(x%28 == 0) std::cout<<std::endl;
-        }
-            std::cout<<std::endl;
-     }
+void InputDataDeliver::changeInputData(int index)
+{
+    std::cout<<"___Number: "<<(int)parsedCsvData.at(index).first<<", Path: "<<parsedCsvData.at(index).second<<std::endl;
 
-
+    imagesParser.getDataFromImage(parsedCsvData.at(index).second, this->inputData.colors);
+    //std::cout<<"TEST: "<<this->inputData.colors.size();
+    this->inputData.valueOnPicture = parsedCsvData.at(index).first;
 }

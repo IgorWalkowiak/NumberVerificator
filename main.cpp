@@ -8,7 +8,8 @@ using namespace std;
 int main()
 {
     NeuronNetwork neuronNetwork("train.csv", 4, 10, 784);
-    //neuronNetwork.loadAndParseInputsFromFile();
+    neuronNetwork.loadAndParseCsvDataFromFile();
+    neuronNetwork.startLearn();
 
 
 
