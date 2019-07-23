@@ -3,18 +3,17 @@
 
 #include "layeri.h"
 
-class HiddenLayer :public LayerI
-{
+class HiddenLayer : public LayerI {
 
 public:
-    HiddenLayer(int outputSize, LayerI* previousLayer, std::function<float(float)> activFunction);
-    HiddenLayer(int outputSize, std::function<float(float)> activFunction);
-    void setPreviousLayer(LayerI* previousLayer);
-    void processInputs();
+  HiddenLayer(int outputSize, LayerI *previousLayer,
+              std::function<float(float)> activFunction);
+  HiddenLayer(int outputSize, std::function<float(float)> activFunction);
+  void setPreviousLayer(LayerI *previousLayer);
+  void processInputs();
 
 private:
-    std::vector<std::vector<float>> weights;
-
+  std::vector<std::vector<float>> weights;
 };
 
 #endif // HIDDENLAYER_H

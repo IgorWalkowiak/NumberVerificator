@@ -1,16 +1,15 @@
 #ifndef IMAGESPARSER_H
 #define IMAGESPARSER_H
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
 
 struct DataStruct;
-class ImagesParser
-{
+class ImagesParser {
 
 public:
-    ImagesParser();
-    void getDataFromImage(std::string imagePath, std::vector<float>& data);
+  ImagesParser();
+  void getDataFromImage(std::string imagePath, std::vector<float> &data);
 };
 
 #endif // IMAGESPARSER_H

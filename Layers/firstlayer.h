@@ -4,15 +4,12 @@
 
 #include "layeri.h"
 
-class FirstLayer :public LayerI
-{
-
+class FirstLayer : public LayerI {
 
 public:
-    FirstLayer(int sizeOfInput);
-    void processInputs();
-    void loadInputs(std::vector<float>*);
+  FirstLayer(int sizeOfInput);
+  void processInputs();
+  void loadInputs(std::vector<float> *);
 };
-
 
 #endif // FIRSTLAYER_H
